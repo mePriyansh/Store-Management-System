@@ -9,11 +9,16 @@ class Item:
         assert quantity >= 0, f"Quantity {quantity} is not greater than or equal to 0"
         
         #Assign to self object
-        self.name = name
+        self.__name = name
         self.price = price
         self.quantity = quantity
         
         Item.all.append(self)
+        
+    @property
+    #Read only property
+    def name(self):
+        return self.__name
     
     def calculate_total_price(self):
         return self.price*self.quantity
