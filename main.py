@@ -45,10 +45,9 @@ class Item:
         return False
         
     def __repr__(self):
-        return f"Item('{self.name}', {self.price}, {self.quantity})"
+        return f"{self.__class__.__name__}('{self.name}', {self.price}, {self.quantity})"
     
 class Phone(Item):
-    all=[]
     def __init__(self, name: str, price: float, quantity=0, broken_phones=0):
         #Call to super function to have access to all attributes
         super().__init__(name, price, quantity)
@@ -57,8 +56,6 @@ class Phone(Item):
         
         #Assign to self object
         self.broken_phones = broken_phones
-        
-        Phone.all.append(self)
 
 Item.instantiate_from_csv()
 print(Item.all)
