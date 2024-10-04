@@ -1,4 +1,6 @@
 class Item:
+    pay_rate = 0.8 #Class attribute
+    
     def __init__(self, name: str, price: float ,quantity=0):
         #Run validation to the received arguments
         assert price >= 0, f"Price {price} is not greater than or equal to 0"
@@ -11,13 +13,18 @@ class Item:
     
     def calculate_total_price(self):
         return self.price*self.quantity
+    
 
+print(Item.__dict__) #To print all the attributes of the class
+print(Item.pay_rate) #To print the class attribute
 
 item1=Item("Phone",100,5)
+print(item1.__dict__) #To print all the attributes of the object 
 print(item1.name)
 print(item1.price)
 print(item1.quantity)  
 print(item1.calculate_total_price())
+
 
 item2=Item("Laptop",1000,3)
 print(item2.name)
