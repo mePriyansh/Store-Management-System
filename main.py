@@ -14,20 +14,12 @@ class Item:
     def calculate_total_price(self):
         return self.price*self.quantity
     
+    def apply_discount(self):
+        self.price = self.price * Item.pay_rate
 
-print(Item.__dict__) #To print all the attributes of the class
 print(Item.pay_rate) #To print the class attribute
 
 item1=Item("Phone",100,5)
 print(item1.__dict__) #To print all the attributes of the object 
-print(item1.name)
+item1.apply_discount()
 print(item1.price)
-print(item1.quantity)  
-print(item1.calculate_total_price())
-
-
-item2=Item("Laptop",1000,3)
-print(item2.name)
-print(item2.price)
-print(item2.quantity)
-print(item2.calculate_total_price())
